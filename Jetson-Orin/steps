@@ -1,0 +1,15 @@
+1. STOP ALL RUNNING containers to measure the baseline utilization.
+
+docker ps
+
+docker stop $(docker ps -aq)
+
+sudo tegrastats --interval 1000 --logfile /home/datalab/datalab/tegrastats_baseline_jetson.txt &
+
+sleep 300
+
+sudo pkill tegrastats
+
+or
+
+sudo jtop --jetson_stats --interval 1 --duration 300 > /home/datalab/datalab/jtop_baseline_jetson.txt

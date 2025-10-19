@@ -10,6 +10,4 @@ sleep 300
 
 sudo pkill tegrastats
 
-or
 
-sudo jtop --jetson_stats --interval 1 --duration 300 > /home/datalab/datalab/jtop_baseline_jetson.txt

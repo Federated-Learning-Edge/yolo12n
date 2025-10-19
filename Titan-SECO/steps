@@ -1,0 +1,5 @@
+sudo powercap-info --zone package-0 > baseline_powercap.txt
+
+sudo turbostat --Summary --interval 1 --num_iterations 300 > baseline_turbostat.txt
+
+vmstat 1 300 > baseline_vmstat.txt

@@ -1,5 +1,82 @@
+to measure the baseline utilization:
+
 sudo powercap-info --zone package-0 > baseline_powercap.txt
 
-sudo turbostat --Summary --interval 1 --num_iterations 300 > baseline_turbostat.txt
+#sudo turbostat --Summary --interval 1 --num_iterations 300 > baseline_turbostat.txt
 
-vmstat 1 300 > baseline_vmstat.txt
+sudo turbostat --Summary --interval 1 --num_iterations 300 > /home/seco/data/tegrastats.txt
+
+
+Memory usage
+
+vmstat 1 300 > /home/seco/data/baseline_vmstat.txt
+
+
+htop -d 10 -C > ~/baseline_htop.txt
+
+# CPU usage
+
+mpstat 1 300 > ~/baseline_cpu.txt
+
+# Memory usage
+
+vmstat 1 300 > ~/baseline_ram.txt
+
+disk usage
+
+df -h > ~/baseline_disk.txt
+
+iostat -dx 1 300 > ~/baseline_io.txt
+
+.............
+
+sudo apt install iftop nload -y
+
+# Run iftop for 5 minutes
+
+sudo timeout 300 iftop -t -s 300 > ~/baseline_iftop.txt
+
+# Alternative: nload logging
+
+sudo nload -t 1000 > ~/baseline_nload.txt
+
+-----------
+
+# On server
+
+iperf3 -s
+
+# On client
+
+iperf3 -c <server_ip> -t 300 -i 1 > ~/baseline_iperf3.txt
+
+----------
+
+iftop -t -s 300 -i eth0 > baseline_network.txt
+
+------
+
+sudo apt install -y sysstat
+
+---------
+
+mpstat 1 300 > ~/baseline/baseline_cpu.txt
+
+-------
+
+Disk usage
+
+df -h > ~/baseline/baseline_disk.txt
+
+sudo apt install -y sysstat
+
+iostat -xm 1 300 > ~/baseline/baseline_iostat.txt
+
+----------
+
+Network usage
+
+sar -n DEV 1 300 > ~/baseline/baseline_network.txt
+
+------
+

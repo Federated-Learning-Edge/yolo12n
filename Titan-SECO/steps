@@ -80,3 +80,6 @@ sar -n DEV 1 300 > ~/baseline/baseline_network.txt
 
 ------
 
+sudo /home/seco/anaconda3/bin/python p.py
+
+

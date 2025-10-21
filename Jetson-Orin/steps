@@ -14,4 +14,6 @@ sudo pkill tegrastats
 
 ps2
 
+sudo /home/seco/anaconda3/bin/python p.py
+
 
